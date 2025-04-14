@@ -1,0 +1,119 @@
+[
+    {
+      "nombre": "Leche Entera 1L",
+      "marca": "La Serenísima",
+      "precio": 1550,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Arroz Largo Fino 1Kg",
+      "marca": "Molinos Ala",
+      "precio": 1400,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Carne Picada Común 1Kg",
+      "marca": "Swift",
+      "precio": 4500,
+      "disponible": true,
+      "categoria": "carnicería"
+    },
+    {
+      "nombre": "Detergente 750ml",
+      "marca": "Ala",
+      "precio": 1800,
+      "disponible": true,
+      "categoria": "limpieza"
+    },
+    {
+      "nombre": "Tomate Redondo 1Kg",
+      "marca": "N/A",
+      "precio": 900,
+      "disponible": true,
+      "categoria": "verdulería"
+    },
+    {
+      "nombre": "Yogur Bebible Frutilla 200ml",
+      "marca": "Sancor",
+      "precio": 300,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Aceite de Girasol 900ml",
+      "marca": "Natura",
+      "precio": 1800,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Shampoo Familiar 1L",
+      "marca": "Sedal",
+      "precio": 2000,
+      "disponible": true,
+      "categoria": "higiene"
+    },
+    {
+      "nombre": "Pechuga de Pollo 1Kg",
+      "marca": "N/A",
+      "precio": 3500,
+      "disponible": true,
+      "categoria": "carnicería"
+    },
+    {
+      "nombre": "Jabón en Barra 200g",
+      "marca": "Cif",
+      "precio": 500,
+      "disponible": true,
+      "categoria": "limpieza"
+    },
+    {
+      "nombre": "Lechuga 1Kg",
+      "marca": "N/A",
+      "precio": 1600,
+      "disponible": true,
+      "categoria": "verdulería"
+    },
+    {
+      "nombre": "Galletas de Agua 200g",
+      "marca": "Terrabusi",
+      "precio": 1400,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Queso Crema 200g",
+      "marca": "La Serenísima",
+      "precio": 800,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Cerveza Rubia 1L",
+      "marca": "Quilmes",
+      "precio": 3000,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Papel Higiénico 4 Rollos",
+      "marca": "Natura",
+      "precio": 1200,
+      "disponible": true,
+      "categoria": "higiene"
+    },
+    {
+      "nombre": "Manzana Roja 1Kg",
+      "marca": "N/A",
+      "precio": 1500,
+      "disponible": true,
+      "categoria": "verdulería"
+    }
+
+
+
+
+  ]
+  

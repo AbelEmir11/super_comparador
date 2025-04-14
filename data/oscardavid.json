@@ -1,0 +1,59 @@
+[
+    {
+      "nombre": "Leche Entera 1L",
+      "marca": "Yogurisimo",
+      "precio": 1550,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Arroz Largo Fino 1Kg",
+      "marca": "tio Carlos",
+      "precio": 1800,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Carne Picada Común 1Kg",
+      "marca": "N/A",
+      "precio": 3800,
+      "disponible": true,
+      "categoria": "carnicería"
+    },
+    {
+      "nombre": "Detergente 750ml",
+      "marca": "mr musculo",
+      "precio": 2800,
+      "disponible": true,
+      "categoria": "limpieza"
+    },
+    {
+      "nombre": "Tomate Redondo 1Kg",
+      "marca": "N/A",
+      "precio": 1000,
+      "disponible": true,
+      "categoria": "verdulería"
+    },
+    {
+      "nombre": "Yogur Bebible Frutilla 200ml",
+      "marca": "Sancor",
+      "precio": 500,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Aceite de Girasol 900ml",
+      "marca": "Natura",
+      "precio": 1230,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Shampoo Familiar 1L",
+      "marca": "Plusbelle",
+      "precio": 1100,
+      "disponible": true,
+      "categoria": "higiene"
+    }
+  ]
+  

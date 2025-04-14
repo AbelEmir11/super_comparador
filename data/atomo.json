@@ -1,0 +1,59 @@
+[
+    {
+      "nombre": "Leche Entera 1L",
+      "marca": "La Lechera",
+      "precio": 1350,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Arroz Largo Fino 1Kg",
+      "marca": "Molinos Río de la Plata",
+      "precio": 1400,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Carne Picada Común 1Kg",
+      "marca": "Atomo",
+      "precio": 3500,
+      "disponible": true,
+      "categoria": "carnicería"
+    },
+    {
+      "nombre": "Detergente 750ml",
+      "marca": "Cif",
+      "precio": 1000,
+      "disponible": true,
+      "categoria": "limpieza"
+    },
+    {
+      "nombre": "Tomate Redondo 1Kg",
+      "marca": "N/A",
+      "precio": 900,
+      "disponible": true,
+      "categoria": "verdulería"
+    },
+    {
+      "nombre": "Yogur Bebible Frutilla 200ml",
+      "marca": "yogurisimo",
+      "precio": 430,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Aceite de Girasol 900ml",
+      "marca": "Girasol",
+      "precio": 1700,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Shampoo Familiar 1L",
+      "marca": "Head & Shoulders",
+      "precio": 2500,
+      "disponible": true,
+      "categoria": "higiene"
+    }
+  ]
+  
