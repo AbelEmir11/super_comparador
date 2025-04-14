@@ -133,8 +133,6 @@ function actualizarListaDeCompras() {
   });
   
 }
-   
-
 function compararPrecios() {
   const tabla = document.getElementById('tablaResultados');
   tabla.innerHTML = ''; // Limpiar tabla
@@ -147,13 +145,14 @@ function compararPrecios() {
   `;
   tabla.appendChild(encabezado);
 
-  const totales = supermercados.map(() => 0); // Inicializar totales por supermercado
+  const totales = supermercados.map(() => 0); // Total por super
+  const disponiblesPorSuper = supermercados.map(() => 0); // Disponibilidad por super
+  const sumaPreciosPorSuper = supermercados.map(() => 0); // Para calcular promedios
 
-  /*listaDeCompras.forEach(({ nombre, cantidad }) => {
+  listaDeCompras.forEach(({ nombre, cantidad }) => {
     const fila = document.createElement('tr');
     fila.innerHTML = `<td>${nombre} x${cantidad}</td>`;
 
-    let precios = [];
     let disponibleEn = [];
 
     supermercados.forEach((supermercado, i) => {
@@ -164,123 +163,82 @@ function compararPrecios() {
 
       if (prod) {
         const totalProducto = prod.precio * cantidad;
-        precios[i] = totalProducto;
         totales[i] += totalProducto;
+        sumaPreciosPorSuper[i] += totalProducto;
+        disponiblesPorSuper[i]++;
         fila.innerHTML += `<td>$${totalProducto}</td>`;
         disponibleEn.push({ nombre: supermercado, precio: totalProducto });
       } else {
-        precios[i] = null;
         fila.innerHTML += `<td style="color: gray">No disponible</td>`;
       }
     });
 
+    // Determinar el mejor precio entre los disponibles
     const menor = disponibleEn.reduce((a, b) => (a.precio < b.precio ? a : b), disponibleEn[0]);
-    fila.innerHTML += `<td>${menor ? menor.nombre : 'Ninguno'}</td>`;
-
+    fila.innerHTML += `<td>🏆 ${menor ? menor.nombre : 'Ninguno'}</td>`;
     tabla.appendChild(fila);
-
-    // Filtramos supermercados que tienen al menos un producto disponible
-let supermercadosDisponibles = resultados.filter(r => r.total > 0);
-
-// Si hay al menos uno con productos disponibles
-if (supermercadosDisponibles.length > 0) {
-  // Buscamos el supermercado con menor total entre los disponibles
-  let supermercadoGanador = supermercadosDisponibles.reduce((min, actual) =>
-    actual.total < min.total ? actual : min
-  );
-
-  Swal.fire({
-    title: '🎉 ¡Mejor opción encontrada!',
-    html: `
-      <div style="font-size: 18px;">
-        <strong>${supermercadoGanador.nombre.toUpperCase()}</strong> ofrece el mejor precio.<br>
-        <br>
-        <i class="fa-solid fa-tags"></i> <strong>Total: $${supermercadoGanador.total}</strong>
-      </div>
-    `,
-    icon: 'success',
-    confirmButtonText: 'Ver Resultados',
-    confirmButtonColor: '#28a745',
-  });
-} else {
-  // Si ningún supermercado tiene los productos
-  Swal.fire({
-    title: '😞 Sin coincidencias',
-    text: 'Ningún supermercado tiene los productos seleccionados.',
-    icon: 'warning',
-    confirmButtonText: 'Ok',
-    confirmButtonColor: '#d33',
-  });
-}
   });
 
-  // Agregar fila con los totales por supermercado
+  // Fila de totales
   const filaTotales = document.createElement('tr');
-  filaTotales.innerHTML = `<td><strong>Total</strong></td>` +
-    totales.map(total => `<td><strong>$${total}</strong></td>`).join('') +
-    `<td></td>`; // Celda vacía para "Mejor precio"
-  tabla.appendChild(filaTotales);
-};*/
-listaDeCompras.forEach(({ nombre, cantidad }) => {
-  const fila = document.createElement('tr');
-  fila.innerHTML = `<td>${nombre} x${cantidad}</td>`;
+  filaTotales.innerHTML = `<td><strong>Total</strong></td>`;
+  totales.forEach(total => {
+    filaTotales.innerHTML += `<td><strong>$${total}</strong></td>`;
+  });
 
-  let disponibleEn = [];
-
+  // Identificar mejor opción general (más productos disponibles y menor total)
+  const maxDisponibles = Math.max(...disponiblesPorSuper);
+  let mejorOpcion = null;
+  let menorTotal = Infinity;
   supermercados.forEach((supermercado, i) => {
-    const datos = datosSupermercados.find(d => d.nombre === supermercado);
-    const prod = datos.productos.find(p =>
-      p.nombre.toLowerCase().includes(nombre.toLowerCase()) && p.disponible
-    );
-
-    if (prod) {
-      const totalProducto = prod.precio * cantidad;
-      totales[i] += totalProducto;
-      disponibleEn.push({ nombre: supermercado, precio: totalProducto });
-      fila.innerHTML += `<td>$${totalProducto}</td>`;
-    } else {
-      fila.innerHTML += `<td style="color: gray">No disponible</td>`;
+    if (disponiblesPorSuper[i] === maxDisponibles && totales[i] < menorTotal) {
+      menorTotal = totales[i];
+      mejorOpcion = supermercado;
     }
   });
 
-  // Agregamos columna de "Mejor precio"
-  if (disponibleEn.length > 0) {
-    const mejor = disponibleEn.reduce((a, b) => (a.precio < b.precio ? a : b));
-    fila.innerHTML += `<td style="color: green; font-weight: bold;">🏆 ${mejor.nombre}</td>`;
-  } else {
-    fila.innerHTML += `<td style="color: red;">Ninguno</td>`;
-  }
-
-  tabla.appendChild(fila);
-});
-
-// Total final por supermercado
-const filaTotales = document.createElement('tr');
-filaTotales.innerHTML = `<td><strong>Total</strong></td>`;
-totales.forEach((total, i) => {
-  filaTotales.innerHTML += `<td><strong>$${total}</strong></td>`;
-});
-
-const mejorTotal = Math.min(...totales.filter(t => t > 0));
-const indiceMejor = totales.findIndex(t => t === mejorTotal);
-
-if (indiceMejor !== -1) {
-  filaTotales.innerHTML += `<td style="color: blue; font-weight: bold;">🏆 ${supermercados[indiceMejor]}</td>`;
-
-  // SweetAlert con mejor supermercado total
-  Swal.fire({
-    icon: 'success',
-    title: '¡Mejor opción!',
-    html: `💰 <b>${supermercados[indiceMejor]}</b> tiene el mejor precio total: <b>$${mejorTotal}</b>`,
-    confirmButtonText: 'Perfecto',
-    background: '#f0f9ff',
+  // Identificar mejor precio promedio
+  let mejorPromedio = Infinity;
+  let supermercadoConMejorPromedio = null;
+  supermercados.forEach((supermercado, i) => {
+    if (disponiblesPorSuper[i] > 0) {
+      const promedio = sumaPreciosPorSuper[i] / disponiblesPorSuper[i];
+      if (promedio < mejorPromedio) {
+        mejorPromedio = promedio;
+        supermercadoConMejorPromedio = supermercado;
+      }
+    }
   });
-} else {
-  filaTotales.innerHTML += `<td style="color: gray;">Sin datos</td>`;
+
+  // Columna extra "Mejor opción"
+  let celdaOpcion = '<td><strong>';
+  supermercados.forEach((supermercado, i) => {
+    let texto = '';
+    if (supermercado === mejorOpcion) texto += '🟢';
+    if (supermercado === supermercadoConMejorPromedio) texto += ' 🔵';
+    celdaOpcion += `<td>${texto.trim()}</td>`;
+  });
+  celdaOpcion += '</strong></td>';
+
+  filaTotales.innerHTML += `<td>🏆 ${mejorOpcion}</td>`;
+  tabla.appendChild(filaTotales);
+
+  // Mensaje final con ambas consideraciones
+  Swal.fire({
+    icon: 'info',
+    title: 'Resultado del Comparador',
+    html: `
+      <p>🟢 <strong>Mejor opción general:</strong> ${mejorOpcion} (por disponibilidad + total)</p>
+      <p>🔵 <strong>Mejor precio promedio:</strong> ${supermercadoConMejorPromedio}</p>
+      <p>¡Podés decidir según qué te conviene más!</p>
+    `,
+    confirmButtonText: 'Entendido',
+  });
 }
 
-tabla.appendChild(filaTotales);
-};
+
+
+
 function mostrarResultados(resultados) {
   console.log("Mostrando resultados", resultados); 
   const resultadosElement = document.getElementById('results');
