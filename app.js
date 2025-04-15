@@ -228,9 +228,10 @@ function compararPrecios() {
     icon: 'info',
     title: 'Resultado del Comparador',
     html: `
-      <p>🟢 <strong>Mejor opción general:</strong> ${mejorOpcion} (por disponibilidad + total)</p>
-      <p>🔵 <strong>Mejor precio promedio:</strong> ${supermercadoConMejorPromedio}</p>
-      <p>¡Podés decidir según qué te conviene más!</p>
+      <p>🟢 <strong>Mejor opción general:</strong> ${mejorOpcion} (mayor disponibilidad de productos)</p>
+      <p>🔵 <strong>Mejor precio en promedio:</strong> ${supermercadoConMejorPromedio}
+      (precios en general mas bajos)</p>
+      <p> <strong> ¡dependiendo de lo que mas te convenga, elige donde comprar gastando menos!.</strong>  </p>
     `,
     confirmButtonText: 'Entendido',
   });
