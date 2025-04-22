@@ -54,6 +54,128 @@
       "precio": 1100,
       "disponible": true,
       "categoria": "higiene"
+    },
+
+    {
+      "nombre": "Leche Chocolatada 1L",
+      "marca": "N/A",
+      "precio": 1800,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Fideos Espaguetti 500g",
+      "marca": "N/A",
+      "precio": 950,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Pechuga de Pollo 1Kg",
+      "marca": "N/A",
+      "precio": 3500,
+      "disponible": true,
+      "categoria": "carnicería"
+    },
+    {
+      "nombre": "Jabon en Barra 200g",
+      "marca": "N/A",
+      "precio": 600,
+      "disponible": true,
+      "categoria": "limpieza"
+    },
+    {
+      "nombre": "Cebolla 1Kg",
+      "marca": "N/A",
+      "precio": 800,
+      "disponible": true,
+      "categoria": "verdulería"
+    },
+    {
+      "nombre": "Yogur Natural 1Kg",
+      "marca": "N/A",
+      "precio": 1200,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Azúcar 1Kg",
+      "marca": "N/A",
+      "precio": 900,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Salchichas 500g",
+      "marca": "N/A",
+      "precio": 1500,
+      "disponible": true,
+      "categoria": "carnicería"
+    },
+    {
+      "nombre": "Limpiador Multiuso 500ml",
+      "marca": "N/A",
+      "precio": 700,
+      "disponible": true,
+      "categoria": "limpieza"
+    },
+    {
+      "nombre": "Lechuga 1Kg",
+      "marca": "N/A",
+      "precio": 1200,
+      "disponible": true,
+      "categoria": "verdulería"
+    
+    },
+    {
+      "nombre": "Galletas de Chocolate 200g",
+      "marca": "N/A",
+      "precio": 1500,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Queso Sardo 200g",
+      "marca": "port salud",
+      "precio": 1200,
+      "disponible": true,
+      "categoria": "lácteos"
+    },
+    {
+      "nombre": "Cerveza Rubia 1L",
+      "marca": "N/A",
+      "precio": 3000,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Papel Higiénico 4 Rollos",
+      "marca": "N/A",
+      "precio": 1200,
+      "disponible": true,
+      "categoria": "higiene"
+    },
+    {
+      "nombre": "Manzana Roja 1Kg",
+      "marca": "N/A",
+      "precio": 1500,
+      "disponible": true,
+      "categoria": "verdulería"
+    },
+    {
+      "nombre": "yerba mate 1/2Kg",
+      "marca": "CBSE",
+      "precio": 1500,
+      "disponible": true,
+      "categoria": "almacén"
+    },
+    {
+      "nombre": "Queso Crema 200g",
+      "marca": "N/A",
+      "precio": 800,
+      "disponible": true,
+      "categoria": "lácteos"
     }
+
   ]
   
