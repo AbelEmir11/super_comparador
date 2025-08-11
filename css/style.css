@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #667eea;
+    --primary-color: #e2e2e2;
     --primary-dark: #5a6fd8;
     --secondary-color: #764ba2;
     --success-color: #38a169;
@@ -16,7 +16,7 @@
     
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
-    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-gradient: linear-gradient(135deg, #66e1ea 0%, #d71bdd 100%);
     
     --text-primary: #2d3748;
     --text-secondary: #4a5568;
