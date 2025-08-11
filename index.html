@@ -1,45 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comparador de Supermercados</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <link rel="stylesheet" href="style.css" />
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Supermercados</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    
+    <!-- External Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-shopping-cart"></i> Comparador de Supermercados</h1>
+            <p>Encuentra la mejor opción para tus compras considerando precio, disponibilidad y distancia</p>
+        </header>
 
-  <header class="bg-blue-600 text-white p-4 mb-6 shadow-md">
-    <h1 class="text-2xl font-bold text-center">Comparador de Supermercados</h1>
-  </header>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Shopping List Section -->
+            <section class="card">
+                <h2><i class="fas fa-list"></i> Lista de Compras</h2>
+                
+                <div class="input-group">
+                    <label for="productInput">Agregar Productos</label>
+                    <input type="text" id="productInput" class="input-field" 
+                           placeholder="Ej: leche, pan, arroz..." 
+                           title="Separa múltiples productos con comas">
+                </div>
+                
+                <button id="addProductBtn" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Agregar Productos
+                </button>
 
-  <main class="p-6 max-w-4xl mx-auto">
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-4">Agrega productos a tu lista</h2>
-      <div class="flex gap-2">
-        <input type="text" id="productInput" placeholder="Ej: leche, arroz..." class="flex-1 p-2 rounded border border-gray-300" />
-        <button id="addProductBtn" class="agregar">Agregar</button>
-      </div>
-      <ul id="productList" class="mt-4 list-disc list-inside text-gray-700"></ul>
-    </section>
+                <div class="shopping-list" id="shoppingList">
+                    <!-- Los productos se agregarán aquí dinámicamente -->
+                </div>
 
-<button id="compareBtn" class="agregar">Comparar Precios</button>
-<div id="results" class="mt-4"></div>
+                <button id="compareBtn" class="btn btn-primary btn-full" disabled>
+                    <i class="fas fa-chart-line"></i> Comparar Precios
+                </button>
+            </section>
 
-    <section>
-      <h2 class="text-xl font-semibold mb-4">Resultado del comparador</h2>   
-<table border="1" id="tablaResultados" class="resultados-comparacion" style="width: 100%; text-align: center; margin-top: 20px;">
-</table>
+            <!-- Location Section -->
+            <section class="card">
+                <h2><i class="fas fa-map-marker-alt"></i> Tu Ubicación</h2>
+                
+                <div class="input-group">
+                    <label for="userAddress">Dirección (opcional)</label>
+                    <input type="text" id="userAddress" class="input-field" 
+                           placeholder="Ej: Av. San Martín 123, Mendoza">
+                </div>
+                
+                <button id="getCurrentLocation" class="btn btn-success">
+                    <i class="fas fa-location-arrow"></i> Usar Mi Ubicación
+                </button>
 
-      <div id="results" class="bg-white shadow p-4 rounded space-y-4"></div>
-    </section>
-  </main>
+                <div class="map-container" id="mapContainer"></div>
+                
+                <div class="distance-info" id="distanceInfo" style="display: none;">
+                    <strong>Distancias calculadas:</strong>
+                    <div id="distanceList"></div>
+                </div>
+            </section>
+        </div>
 
-  <script src="app.js"></script>
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <h2><i class="fas fa-trophy"></i> Resultados de Comparación</h2>
+            
+            <div id="metricsCards"></div>
+            
+            <div class="table-container">
+                <table class="comparison-table" id="comparisonTable">
+                    <!-- La tabla se generará dinámicamente -->
+                </table>
+            </div>
+            
+            <div id="recommendations"></div>
+        </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Calculando mejores opciones...</p>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/utilidades.js"></script>
+    <script src="js/mapas.js"></script>
+    <script src="js/shopping-list.js"></script>
+    <script src="js/comparador.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
